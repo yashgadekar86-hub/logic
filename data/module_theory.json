@@ -1,0 +1,285 @@
+{
+  "Clock Problems": {
+    "title": "⏰ Clock Problems — Complete Theory",
+    "overview": "Clock aptitude problems study the relative motion of the hour, minute and second hands. The key idea is that the hour hand does not stay fixed: it moves 0.5° every minute. Most questions reduce to angular position, relative speed, or time-rate conversion.",
+    "concepts": [
+      "A complete analog clock is 360° and has 12 hour marks, so adjacent hour marks are 30° apart.",
+      "The minute hand completes 360° in 60 minutes: 6° per minute.",
+      "The hour hand completes 360° in 12 hours: 30° per hour or 0.5° per minute.",
+      "The second hand moves 6° per second.",
+      "The relative speed of minute hand with respect to hour hand is 6 − 0.5 = 5.5° per minute."
+    ],
+    "formulas": [
+      "Minute-hand angle = 6M°",
+      "Hour-hand angle = 30H + 0.5M° (use H mod 12)",
+      "Smaller angle = min(|30H − 5.5M|, 360 − |30H − 5.5M|)",
+      "For coincidence in the H-th hour: M = 60H/11 minutes",
+      "Mirror time = 11:60 − actual time for a 12-hour analog clock",
+      "Relative angular speed = 5.5°/minute"
+    ],
+    "examples": [
+      [
+        "4:20",
+        "Minute hand = 20×6 = 120°. Hour hand = 4×30 + 20×0.5 = 130°. Difference = 10°."
+      ],
+      [
+        "7:25",
+        "Minute hand = 150°. Hour hand = 210 + 12.5 = 222.5°. Smaller angle = 72.5°."
+      ],
+      [
+        "Mirror of 7:25",
+        "11:60 − 7:25 = 4:35."
+      ],
+      [
+        "Coincidence between 3 and 4",
+        "M = 60×3/11 = 180/11 = 16 4/11 minutes, so about 3:16:21.8."
+      ]
+    ],
+    "mistakes": [
+      "Using 30H − 6M ignores hour-hand movement.",
+      "Forgetting to choose the smaller angle when asked for the angle between hands.",
+      "Treating 12 as H=12 instead of H=0 in the angle formula.",
+      "Using a fast/slow clock rate without distinguishing displayed elapsed time from real elapsed time."
+    ],
+    "tips": [
+      "Memorize 6°, 0.5°, and 5.5° per minute.",
+      "For coincidence/opposite/right-angle questions, use relative motion rather than guessing.",
+      "Keep fractional minutes until the final step when exactness matters."
+    ]
+  },
+  "Calendar Problems": {
+    "title": "📅 Calendar Problems — Complete Theory",
+    "overview": "Calendar aptitude problems are based on the seven-day cycle, month lengths, leap-year rules, odd days, date differences, and modular arithmetic. The safest approach is to reduce total day counts modulo 7.",
+    "concepts": [
+      "A normal Gregorian year has 365 days = 52 weeks + 1 odd day.",
+      "A leap year has 366 days = 52 weeks + 2 odd days.",
+      "Gregorian leap year rule: divisible by 4, except century years unless divisible by 400.",
+      "Month lengths are 31, 28/29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31.",
+      "A 400-year Gregorian cycle contains exactly 146097 days = 20871 weeks, so the calendar repeats after 400 years."
+    ],
+    "formulas": [
+      "Odd days = total days mod 7",
+      "Day shift after N days = N mod 7",
+      "Leap year: divisible by 4 and (not divisible by 100 or divisible by 400)",
+      "Date difference = sum of remaining days in the first month + complete middle months + days in final month, or use direct date arithmetic",
+      "Same calendar requires matching weekday pattern and the same leap/non-leap month structure"
+    ],
+    "examples": [
+      [
+        "15 August 1947",
+        "It was Friday in the Gregorian calendar."
+      ],
+      [
+        "1 January 2025 + 100 days",
+        "100 mod 7 = 2, so the weekday shifts forward by 2 days."
+      ],
+      [
+        "1900 vs 2000",
+        "1900 is not a leap year because it is a century not divisible by 400; 2000 is a leap year because 2000 is divisible by 400."
+      ]
+    ],
+    "mistakes": [
+      "Treating every year divisible by 4 as leap without checking century rules.",
+      "Counting both endpoints when a question asks for elapsed days between dates.",
+      "Forgetting that February has 29 days in a leap year.",
+      "Forgetting to reduce large day counts modulo 7."
+    ],
+    "tips": [
+      "Write the leap-year rule explicitly before solving century questions.",
+      "For weekday shifts, use N mod 7 immediately.",
+      "For same-calendar questions, check both weekday alignment and leap/non-leap status."
+    ]
+  },
+  "Pattern Recognition": {
+    "title": "🔢 Pattern Recognition — Complete Theory",
+    "overview": "Pattern questions ask you to infer a consistent rule from a sequence, figure, or relationship. Start with the simplest transformations before testing more complex ones.",
+    "concepts": [
+      "First differences: subtract consecutive terms.",
+      "Second differences: compare consecutive differences when the first differences are not constant.",
+      "Ratios: divide a term by the previous term when multiplication is likely.",
+      "Alternating patterns: odd and even positions may follow different rules.",
+      "Mixed operations can combine multiplication/addition or subtraction/division."
+    ],
+    "formulas": [
+      "Arithmetic sequence: a_n = a_1 + (n−1)d",
+      "Geometric sequence: a_n = a_1 r^(n−1)",
+      "Quadratic sequences often have constant second differences"
+    ],
+    "examples": [
+      [
+        "2, 5, 10, 17, ?",
+        "Differences are 3, 5, 7, so the next difference is 9 and the answer is 26."
+      ]
+    ],
+    "mistakes": [
+      "Choosing a complicated rule when a simpler consistent rule exists.",
+      "Checking only one transition instead of the entire sequence."
+    ],
+    "tips": [
+      "Test differences, ratios, alternation, and known number families in that order."
+    ]
+  },
+  "Tabular Data Interpretation": {
+    "title": "📊 Tabular Data Interpretation — Complete Theory",
+    "overview": "Tabular DI converts rows and columns into numerical comparisons. Read labels and units first, then calculate totals, averages, differences, ratios, and percentage changes.",
+    "concepts": [
+      "Identify row categories, column headings, units, and time periods.",
+      "Totals are found by summing the relevant cells.",
+      "An average is total divided by the number of observations.",
+      "Percentage change compares a new value with the original value.",
+      "Ratios should be simplified when appropriate."
+    ],
+    "formulas": [
+      "Percentage change = (New − Old)/Old × 100",
+      "Average = Sum/Number of observations",
+      "Ratio A:B = A/B and can be reduced by a common factor",
+      "Percentage contribution = Part/Total × 100"
+    ],
+    "examples": [
+      [
+        "120 to 150",
+        "Percentage increase = 30/120×100 = 25%."
+      ],
+      [
+        "Values 10, 20, 30",
+        "Average = 60/3 = 20."
+      ]
+    ],
+    "mistakes": [
+      "Using the new value as the denominator for percentage change.",
+      "Mixing units or comparing percentages with raw values."
+    ],
+    "tips": [
+      "Underline the exact row/column named in the question before calculating."
+    ]
+  },
+  "Bar Graph Analysis": {
+    "title": "📈 Bar Graph Analysis — Complete Theory",
+    "overview": "Bar graphs compare discrete categories using bar height or length. Questions commonly ask for highest/lowest values, differences, totals, ratios, and percentage changes.",
+    "concepts": [
+      "Read the axis scale before reading a bar value.",
+      "Compare bars directly for highest, lowest, and ranking questions.",
+      "For totals, add the values represented by the relevant bars.",
+      "For percentage change, use the original value as the denominator."
+    ],
+    "formulas": [
+      "Difference = A − B",
+      "Percentage increase = (A−B)/B × 100 when B is the original value",
+      "Ratio = A:B",
+      "Total = sum of selected categories"
+    ],
+    "examples": [
+      [
+        "80 versus 50",
+        "Difference = 30; ratio = 8:5."
+      ],
+      [
+        "50 to 80",
+        "Increase = 30/50×100 = 60%."
+      ]
+    ],
+    "mistakes": [
+      "Misreading the graph scale.",
+      "Comparing visual bar lengths without reading numeric labels."
+    ],
+    "tips": [
+      "Always inspect tick marks and units first."
+    ]
+  },
+  "Pie Chart Analysis": {
+    "title": "🥧 Pie Chart Analysis — Complete Theory",
+    "overview": "A pie chart divides 360° into sectors. Sector angle is proportional to category value. Convert between percentages, angles, and actual quantities as required.",
+    "concepts": [
+      "Full circle = 360°.",
+      "100% corresponds to 360°.",
+      "A sector angle is proportional to its percentage or value.",
+      "The sum of all sector percentages is 100%."
+    ],
+    "formulas": [
+      "Sector angle = Percentage/100 × 360°",
+      "Percentage = Angle/360 × 100",
+      "Category value = Percentage × Total/100",
+      "1% = 3.6°"
+    ],
+    "examples": [
+      [
+        "25% sector",
+        "Angle = 25/100×360 = 90°."
+      ],
+      [
+        "72° sector",
+        "Percentage = 72/360×100 = 20%."
+      ]
+    ],
+    "mistakes": [
+      "Using 180° instead of 360° for the full circle.",
+      "Confusing a sector angle with a percentage."
+    ],
+    "tips": [
+      "Memorize 1% = 3.6° and 90° = 25%."
+    ]
+  },
+  "Line Graph Analysis": {
+    "title": "📉 Line Graph Analysis — Complete Theory",
+    "overview": "Line graphs show how a quantity changes across ordered periods. Focus on trend, absolute change, percentage change, peaks, troughs, and period-to-period differences.",
+    "concepts": [
+      "The x-axis normally represents time or ordered categories.",
+      "The y-axis represents the measured quantity.",
+      "Upward slope indicates increase; downward slope indicates decrease.",
+      "Compare values at the exact periods named in the question."
+    ],
+    "formulas": [
+      "Absolute change = New − Old",
+      "Percentage change = (New−Old)/Old × 100",
+      "Average = Sum/Number of periods",
+      "Range = Maximum − Minimum"
+    ],
+    "examples": [
+      [
+        "45 to 90",
+        "Absolute increase = 45; percentage increase = 100%."
+      ]
+    ],
+    "mistakes": [
+      "Using the wrong starting period.",
+      "Ignoring the y-axis scale."
+    ],
+    "tips": [
+      "For percentage change, identify the base period explicitly."
+    ]
+  },
+  "Missing Data Interpretation": {
+    "title": "🔍 Missing Data Interpretation — Complete Theory",
+    "overview": "Missing-data questions provide constraints such as totals, percentages, averages, ratios, or row/column relationships. The unknown is found by rearranging the constraint.",
+    "concepts": [
+      "If total and other values are known, subtract known values from the total.",
+      "If an average is known, multiply average by count to recover total.",
+      "If a percentage is known, convert it to a fraction of the total.",
+      "Use multiple independent constraints to verify the missing value."
+    ],
+    "formulas": [
+      "Missing = Total − Sum of known values",
+      "Total = Average × Number of observations",
+      "Part = Percentage/100 × Total",
+      "Missing percentage = 100% − known percentages"
+    ],
+    "examples": [
+      [
+        "Total 220, known 70 and 80",
+        "Missing = 220−70−80 = 70."
+      ],
+      [
+        "Average 25 for 4 values",
+        "Total = 25×4 = 100."
+      ]
+    ],
+    "mistakes": [
+      "Forgetting which values belong to the stated total.",
+      "Using percentages as raw numbers.",
+      "Failing to check that reconstructed totals match."
+    ],
+    "tips": [
+      "Write the governing equation before substituting numbers."
+    ]
+  }
+}

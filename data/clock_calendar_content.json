@@ -1,0 +1,1091 @@
+{
+  "appName": "LogicIQ",
+  "contentVersion": "2.0",
+  "topics": {
+    "clock": {
+      "theory": [
+        {
+          "id": "clock_basics",
+          "category": "Clock",
+          "topic": "Basic Clock Concept",
+          "title": "Understanding an Analog Clock",
+          "level": "Beginner",
+          "theory": "An analog clock has 12 numbered positions and 60 minute divisions around a full 360° circle. The minute hand completes one revolution in 60 minutes, the hour hand completes one revolution in 12 hours, and the second hand completes one revolution in 60 seconds. Because the hour hand moves continuously, its position between two numbers depends on the minutes elapsed after the hour.",
+          "formulas": [
+            "Full circle = 360°",
+            "12 hour divisions: 360/12 = 30° per hour",
+            "Minute hand: 360/60 = 6° per minute",
+            "Hour hand: 360/12 = 30° per hour",
+            "Hour hand = 0.5° per minute = 1/120° per second",
+            "Second hand = 6° per second"
+          ],
+          "shortcuts": [
+            "Memorize 6° per minute for the minute hand.",
+            "Memorize 30° per hour for the hour hand.",
+            "Add 0.5° for every minute after the hour to the hour hand position."
+          ],
+          "examples": [
+            {
+              "question": "Where is the minute hand at 20 minutes?",
+              "solution": "20×6 = 120° from 12.",
+              "answer": "120°"
+            }
+          ],
+          "commonMistakes": [
+            "Treating the hour hand as fixed at its number.",
+            "Confusing minutes with hour divisions."
+          ],
+          "examTips": [
+            "Draw a quick clock if the wording is difficult.",
+            "Keep the hour hand's fractional movement."
+          ]
+        },
+        {
+          "id": "clock_angle",
+          "category": "Clock",
+          "topic": "Angle Between Hands",
+          "title": "Main Clock Angle Formula",
+          "level": "Beginner",
+          "theory": "At H:M, the minute hand is M×6 degrees from 12. The hour hand is H×30 + M×0.5 degrees from 12. Their raw separation is |30H−5.5M|. Since two angles are formed around a circle, the smaller angle is the minimum of this value and 360° minus this value.",
+          "formulas": [
+            "θ = |30H − 5.5M|",
+            "Smaller angle = min(θ, 360−θ)",
+            "Larger angle = max(θ, 360−θ)"
+          ],
+          "shortcuts": [
+            "For an exact integer minute, substitute directly into |30H−5.5M|.",
+            "If the raw difference exceeds 180°, subtract it from 360°."
+          ],
+          "examples": [
+            {
+              "question": "Find the angle at 4:20.",
+              "solution": "Minute = 20×6=120°. Hour = 4×30+20×0.5=130°. Difference = 10°.",
+              "answer": "10°"
+            }
+          ],
+          "commonMistakes": [
+            "Using 30H−6M, which ignores hour-hand movement.",
+            "Reporting the larger angle when the question asks for the smaller angle."
+          ],
+          "examTips": [
+            "Always calculate the hour hand using 30H+0.5M."
+          ]
+        },
+        {
+          "id": "clock_specified",
+          "category": "Clock",
+          "topic": "Specified Angles",
+          "title": "Finding a Time for a Given Angle",
+          "level": "Intermediate",
+          "theory": "To find when an angle θ occurs during a specified hour, solve |30H−5.5M|=θ. The absolute value creates two equations: 30H−5.5M=θ and 30H−5.5M=−θ. Test both solutions and keep only minutes from 0 through less than 60.",
+          "formulas": [
+            "30H−5.5M = ±θ",
+            "M = (30H∓θ)/5.5"
+          ],
+          "shortcuts": [
+            "Solve both signs; an hour can contain two occurrences of many angles.",
+            "Convert decimal minutes into seconds when exact precision is required."
+          ],
+          "examples": [
+            {
+              "question": "When are the hands 90° apart between 3 and 4?",
+              "solution": "Set |90−5.5M|=90. One solution is M=0; the other is M=180/5.5=32 8/11 minutes.",
+              "answer": "3:00 and about 3:32:44"
+            }
+          ],
+          "commonMistakes": [
+            "Keeping a solution where M≥60.",
+            "Assuming every specified angle occurs twice in every one-hour interval."
+          ],
+          "examTips": [
+            "Check the interval stated in the question."
+          ]
+        },
+        {
+          "id": "clock_coincidence",
+          "category": "Clock",
+          "topic": "Coincidence",
+          "title": "When Hands Overlap",
+          "level": "Intermediate",
+          "theory": "Coincidence means the hour and minute hands occupy the same position. The minute hand moves at 6°/minute and the hour hand at 0.5°/minute, so the minute hand gains 5.5°/minute. It needs 360° of relative movement to catch the hour hand again.",
+          "formulas": [
+            "Relative speed = 6−0.5 = 5.5°/minute",
+            "Interval = 360/5.5 = 720/11 = 65 5/11 minutes",
+            "11 coincidences in 12 hours; 22 in 24 hours"
+          ],
+          "shortcuts": [
+            "Coincidence after H:00 occurs at M=60H/11 minutes for H=0,1,...,11."
+          ],
+          "examples": [
+            {
+              "question": "When do the hands coincide between 3 and 4?",
+              "solution": "M=60×3/11=180/11=16 4/11 minutes.",
+              "answer": "3:16:21.8 approximately"
+            }
+          ],
+          "commonMistakes": [
+            "Saying 12 coincidences in 12 hours; the standard count is 11 occurrences.",
+            "Using 60 minutes as the interval."
+          ],
+          "examTips": [
+            "Remember 720/11 minutes as the coincidence interval."
+          ]
+        },
+        {
+          "id": "clock_opposite",
+          "category": "Clock",
+          "topic": "Opposite Hands",
+          "title": "180° Separation",
+          "level": "Intermediate",
+          "theory": "Opposite hands are 180° apart. Set |30H−5.5M|=180. The relative motion still has speed 5.5°/minute. There are 11 opposite positions in a 12-hour cycle.",
+          "formulas": [
+            "|30H−5.5M|=180°",
+            "Relative speed = 5.5°/minute"
+          ],
+          "shortcuts": [
+            "Solve the same way as specified-angle problems, using θ=180°."
+          ],
+          "examples": [
+            {
+              "question": "Find the first opposite position after 8:00.",
+              "solution": "|240−5.5M|=180. The valid first solution is M=60/5.5=10 10/11 minutes.",
+              "answer": "8:10:54.5 approximately"
+            }
+          ],
+          "commonMistakes": [
+            "Forgetting the hour hand has moved.",
+            "Counting the 180° position as a coincidence."
+          ],
+          "examTips": [
+            "Treat 180° as a special specified-angle problem."
+          ]
+        },
+        {
+          "id": "clock_right",
+          "category": "Clock",
+          "topic": "Right Angle",
+          "title": "90° Separation",
+          "level": "Intermediate",
+          "theory": "A right angle occurs when the hands are separated by 90°. Solve |30H−5.5M|=90. There are 22 right-angle occurrences in 12 hours and 44 in 24 hours.",
+          "formulas": [
+            "|30H−5.5M|=90°",
+            "22 occurrences per 12 hours"
+          ],
+          "shortcuts": [
+            "Use the specified-angle equation with θ=90."
+          ],
+          "examples": [
+            {
+              "question": "When are the hands 90° apart after 1:00?",
+              "solution": "|30−5.5M|=90. The valid solution is M=120/5.5=21 9/11 minutes.",
+              "answer": "1:21:49 approximately"
+            }
+          ],
+          "commonMistakes": [
+            "Assuming the right angle always occurs at :15 or :45."
+          ],
+          "examTips": [
+            "The hour hand moves, so exact quarter-hour shortcuts are usually wrong."
+          ]
+        },
+        {
+          "id": "clock_gain",
+          "category": "Clock",
+          "topic": "Gaining and Losing",
+          "title": "Fast and Slow Clocks",
+          "level": "Advanced",
+          "theory": "A fast clock gains time relative to real time; a slow clock loses time. If a clock gains g minutes every hour, its shown elapsed time for each real hour is 60+g minutes. If it loses l minutes every hour, it shows 60−l minutes per real hour. For a stated synchronization point, use a ratio between displayed elapsed time and actual elapsed time.",
+          "formulas": [
+            "Fast: shown/actual = (60+g)/60",
+            "Slow: shown/actual = (60−l)/60",
+            "Actual elapsed = shown elapsed × actual-rate/shown-rate"
+          ],
+          "shortcuts": [
+            "Convert all rates to the same unit before solving.",
+            "A gain/loss question needs a reference or synchronization time to determine an absolute displayed reading."
+          ],
+          "examples": [
+            {
+              "question": "A clock gains 5 min per hour. Gain in 12 hours?",
+              "solution": "5×12=60 minutes.",
+              "answer": "60 minutes"
+            }
+          ],
+          "commonMistakes": [
+            "Assuming a clock's current displayed time alone reveals the actual time without a starting condition."
+          ],
+          "examTips": [
+            "Write a timeline when the question gives a starting synchronization."
+          ]
+        },
+        {
+          "id": "clock_mirror",
+          "category": "Clock",
+          "topic": "Mirror Clock",
+          "title": "Reading a Mirror Image",
+          "level": "Intermediate",
+          "theory": "For a standard 12-hour analog clock, the mirror reverses the positions around the vertical axis. The shortcut is mirror time = 11:60 − actual time. For example, 7:25 gives 4:35.",
+          "formulas": [
+            "Mirror time = 11:60 − actual time",
+            "Actual time from mirror = 11:60 − mirror reading"
+          ],
+          "shortcuts": [
+            "For 7:25, think 11:60−7:25=4:35.",
+            "For exact 12:00, the mirror also reads 12:00."
+          ],
+          "examples": [
+            {
+              "question": "Mirror image of 10:10?",
+              "solution": "11:60−10:10=1:50.",
+              "answer": "1:50"
+            }
+          ],
+          "commonMistakes": [
+            "Using 12:00−time without converting the borrowing correctly."
+          ],
+          "examTips": [
+            "Write 11:60 before subtracting."
+          ]
+        },
+        {
+          "id": "clock_advanced",
+          "category": "Clock",
+          "topic": "Advanced Clock Problems",
+          "title": "Mixed and Expert Clock Reasoning",
+          "level": "Expert",
+          "theory": "Advanced clock questions combine relative motion, specified angles, multiple occurrences, mirror readings, and fast/slow rates. The safest approach is to define the unknown minute or elapsed time, write the governing equation, solve both absolute-value branches when needed, and check the result against the stated interval.",
+          "formulas": [
+            "Relative angular speed = 5.5°/minute",
+            "Specified angle: |30H−5.5M|=θ",
+            "Mirror: 11:60−t",
+            "Fast/slow: displayed rate relative to actual rate"
+          ],
+          "shortcuts": [
+            "Break a mixed problem into independent conditions.",
+            "Check units: degrees, minutes, hours and seconds must not be mixed."
+          ],
+          "examples": [
+            {
+              "question": "A clock question combines a specified angle and a time interval. What is the first step?",
+              "solution": "Translate the hand positions into degrees and write the absolute-value angle equation before solving.",
+              "answer": "Write the angle equation"
+            }
+          ],
+          "commonMistakes": [
+            "Solving an equation without checking whether the time lies in the requested hour."
+          ],
+          "examTips": [
+            "Verification is part of the solution, not an optional step."
+          ]
+        }
+      ],
+      "formulas": [
+        "Minute hand position = 6M°",
+        "Hour hand position = 30H + 0.5M°",
+        "Raw separation θ = |30H − 5.5M|",
+        "Smaller angle = min(θ, 360−θ)",
+        "Larger angle = max(θ, 360−θ)",
+        "Relative speed = 5.5°/minute",
+        "Coincidence interval = 720/11 minutes = 65 5/11 minutes",
+        "Coincidence count = 11 in 12 hours; 22 in 24 hours",
+        "Right-angle count = 22 in 12 hours; 44 in 24 hours",
+        "Mirror time = 11:60 − actual time",
+        "Fast clock: displayed rate = 60+gain minutes per real hour",
+        "Slow clock: displayed rate = 60−loss minutes per real hour"
+      ],
+      "shortcuts": [
+        "6° per minute for minute hand",
+        "30° per hour and 0.5° per minute for hour hand",
+        "5.5° per minute relative movement",
+        "720/11-minute coincidence interval",
+        "Solve specified angles with ±θ",
+        "Mirror: 11:60 − actual",
+        "Use rate ratios for fast/slow clocks",
+        "Do not use shortcuts without checking the stated interval"
+      ],
+      "solvedExamples": [
+        {
+          "question": "Find the smaller angle between the hands at 1:00.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 0×6 = 0°.",
+          "step2": "Hour hand = 1×30 + 0×0.5 = 30.0°.",
+          "step3": "Separation = |30.0 − 0| = 30.0°. Choose the smaller angle.",
+          "answer": "30°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        },
+        {
+          "question": "Find the smaller angle between the hands at 2:15.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 15×6 = 90°.",
+          "step2": "Hour hand = 2×30 + 15×0.5 = 67.5°.",
+          "step3": "Separation = |67.5 − 90| = 22.5°. Choose the smaller angle.",
+          "answer": "22.50°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        },
+        {
+          "question": "Find the smaller angle between the hands at 3:30.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 30×6 = 180°.",
+          "step2": "Hour hand = 3×30 + 30×0.5 = 105.0°.",
+          "step3": "Separation = |105.0 − 180| = 75.0°. Choose the smaller angle.",
+          "answer": "75°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        },
+        {
+          "question": "Find the smaller angle between the hands at 4:20.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 20×6 = 120°.",
+          "step2": "Hour hand = 4×30 + 20×0.5 = 130.0°.",
+          "step3": "Separation = |130.0 − 120| = 10.0°. Choose the smaller angle.",
+          "answer": "10°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        },
+        {
+          "question": "Find the smaller angle between the hands at 5:40.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 40×6 = 240°.",
+          "step2": "Hour hand = 5×30 + 40×0.5 = 170.0°.",
+          "step3": "Separation = |170.0 − 240| = 70.0°. Choose the smaller angle.",
+          "answer": "70°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        },
+        {
+          "question": "Find the smaller angle between the hands at 7:25.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 25×6 = 150°.",
+          "step2": "Hour hand = 7×30 + 25×0.5 = 222.5°.",
+          "step3": "Separation = |222.5 − 150| = 72.5°. Choose the smaller angle.",
+          "answer": "72.50°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        },
+        {
+          "question": "Find the smaller angle between the hands at 8:45.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 45×6 = 270°.",
+          "step2": "Hour hand = 8×30 + 45×0.5 = 262.5°.",
+          "step3": "Separation = |262.5 − 270| = 7.5°. Choose the smaller angle.",
+          "answer": "7.50°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        },
+        {
+          "question": "Find the smaller angle between the hands at 10:10.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 10×6 = 60°.",
+          "step2": "Hour hand = 10×30 + 10×0.5 = 305.0°.",
+          "step3": "Separation = |305.0 − 60| = 245.0°. Choose the smaller angle.",
+          "answer": "115°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        },
+        {
+          "question": "Find the smaller angle between the hands at 11:50.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 50×6 = 300°.",
+          "step2": "Hour hand = 11×30 + 50×0.5 = 355.0°.",
+          "step3": "Separation = |355.0 − 300| = 55.0°. Choose the smaller angle.",
+          "answer": "55°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        },
+        {
+          "question": "Find the smaller angle between the hands at 6:35.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 35×6 = 210°.",
+          "step2": "Hour hand = 6×30 + 35×0.5 = 197.5°.",
+          "step3": "Separation = |197.5 − 210| = 12.5°. Choose the smaller angle.",
+          "answer": "12.50°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        },
+        {
+          "question": "Find the smaller angle between the hands at 1:00.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 0×6 = 0°.",
+          "step2": "Hour hand = 1×30 + 0×0.5 = 30.0°.",
+          "step3": "Separation = |30.0 − 0| = 30.0°. Choose the smaller angle.",
+          "answer": "30°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        },
+        {
+          "question": "Find the smaller angle between the hands at 2:15.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 15×6 = 90°.",
+          "step2": "Hour hand = 2×30 + 15×0.5 = 67.5°.",
+          "step3": "Separation = |67.5 − 90| = 22.5°. Choose the smaller angle.",
+          "answer": "22.50°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        },
+        {
+          "question": "Find the smaller angle between the hands at 3:30.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 30×6 = 180°.",
+          "step2": "Hour hand = 3×30 + 30×0.5 = 105.0°.",
+          "step3": "Separation = |105.0 − 180| = 75.0°. Choose the smaller angle.",
+          "answer": "75°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        },
+        {
+          "question": "Find the smaller angle between the hands at 4:20.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 20×6 = 120°.",
+          "step2": "Hour hand = 4×30 + 20×0.5 = 130.0°.",
+          "step3": "Separation = |130.0 − 120| = 10.0°. Choose the smaller angle.",
+          "answer": "10°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        },
+        {
+          "question": "Find the smaller angle between the hands at 5:40.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 40×6 = 240°.",
+          "step2": "Hour hand = 5×30 + 40×0.5 = 170.0°.",
+          "step3": "Separation = |170.0 − 240| = 70.0°. Choose the smaller angle.",
+          "answer": "70°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        },
+        {
+          "question": "Find the smaller angle between the hands at 7:25.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 25×6 = 150°.",
+          "step2": "Hour hand = 7×30 + 25×0.5 = 222.5°.",
+          "step3": "Separation = |222.5 − 150| = 72.5°. Choose the smaller angle.",
+          "answer": "72.50°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        },
+        {
+          "question": "Find the smaller angle between the hands at 8:45.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 45×6 = 270°.",
+          "step2": "Hour hand = 8×30 + 45×0.5 = 262.5°.",
+          "step3": "Separation = |262.5 − 270| = 7.5°. Choose the smaller angle.",
+          "answer": "7.50°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        },
+        {
+          "question": "Find the smaller angle between the hands at 10:10.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 10×6 = 60°.",
+          "step2": "Hour hand = 10×30 + 10×0.5 = 305.0°.",
+          "step3": "Separation = |305.0 − 60| = 245.0°. Choose the smaller angle.",
+          "answer": "115°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        },
+        {
+          "question": "Find the smaller angle between the hands at 11:50.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 50×6 = 300°.",
+          "step2": "Hour hand = 11×30 + 50×0.5 = 355.0°.",
+          "step3": "Separation = |355.0 − 300| = 55.0°. Choose the smaller angle.",
+          "answer": "55°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        },
+        {
+          "question": "Find the smaller angle between the hands at 6:35.",
+          "concept": "Angle Between Hands",
+          "formula": "|30H − 5.5M|",
+          "step1": "Minute hand = 35×6 = 210°.",
+          "step2": "Hour hand = 6×30 + 35×0.5 = 197.5°.",
+          "step3": "Separation = |197.5 − 210| = 12.5°. Choose the smaller angle.",
+          "answer": "12.50°",
+          "examTip": "Include hour-hand movement even when the minute value is not zero."
+        }
+      ],
+      "questionGeneration": {
+        "mode": "runtime",
+        "source": "modules/dynamic_questions.py",
+        "description": "Questions are generated procedurally at runtime; no fixed MCQ list is used for practice."
+      }
+    },
+    "calendar": {
+      "theory": [
+        {
+          "id": "cal_basics",
+          "category": "Calendar",
+          "topic": "Basic Calendar Concept",
+          "title": "Calendar Fundamentals",
+          "level": "Beginner",
+          "theory": "The Gregorian calendar divides time into weeks of 7 days and years of 365 days, with 366 days in a leap year. Months have 28, 29, 30 or 31 days. Weekday questions can be solved by counting total days and reducing modulo 7.",
+          "formulas": [
+            "7 days = 1 week",
+            "Normal year = 365 days",
+            "Leap year = 366 days",
+            "Weekday shift = total days mod 7"
+          ],
+          "shortcuts": [
+            "Remember the 30/31-day month pattern and February exception."
+          ],
+          "examples": [
+            {
+              "question": "How many days are in a normal year?",
+              "solution": "365.",
+              "answer": "365 days"
+            }
+          ],
+          "commonMistakes": [
+            "Forgetting February has 29 days in leap years."
+          ],
+          "examTips": [
+            "Decide first whether the relevant year is leap or common."
+          ]
+        },
+        {
+          "id": "cal_leap",
+          "category": "Calendar",
+          "topic": "Leap Year",
+          "title": "Gregorian Leap-Year Rule",
+          "level": "Beginner",
+          "theory": "A Gregorian year is a leap year if it is divisible by 4, except century years. A century year is a leap year only if it is divisible by 400. Therefore 1900 and 2100 are not leap years, while 2000 and 2400 are leap years.",
+          "formulas": [
+            "Divisible by 4 → usually leap",
+            "Divisible by 100 → not leap unless divisible by 400",
+            "Divisible by 400 → leap"
+          ],
+          "shortcuts": [
+            "Check 400 first for century years."
+          ],
+          "examples": [
+            {
+              "question": "Is 2000 leap?",
+              "solution": "2000 is divisible by 400.",
+              "answer": "Yes"
+            }
+          ],
+          "commonMistakes": [
+            "Calling every year divisible by 4 a leap year."
+          ],
+          "examTips": [
+            "Century rule is a frequent exam trap."
+          ]
+        },
+        {
+          "id": "cal_odd",
+          "category": "Calendar",
+          "topic": "Odd Days",
+          "title": "Odd Days Method",
+          "level": "Intermediate",
+          "theory": "Odd days are the remainder after dividing a total number of days by 7. A normal year has 365 = 52 weeks + 1 day, so it contributes 1 odd day. A leap year contributes 2 odd days. Add odd days across the required years and reduce modulo 7.",
+          "formulas": [
+            "365 mod 7 = 1",
+            "366 mod 7 = 2",
+            "Odd days = total days mod 7"
+          ],
+          "shortcuts": [
+            "For long ranges, count leap years separately.",
+            "A 400-year Gregorian cycle contributes 0 odd days."
+          ],
+          "examples": [
+            {
+              "question": "Odd days in a leap year?",
+              "solution": "366 = 52×7+2.",
+              "answer": "2"
+            }
+          ],
+          "commonMistakes": [
+            "Treating 100 years as a fixed odd-day count without specifying the century interval."
+          ],
+          "examTips": [
+            "State the exact start and end years for century calculations."
+          ]
+        },
+        {
+          "id": "cal_months",
+          "category": "Calendar",
+          "topic": "Month Lengths",
+          "title": "Days in Each Month",
+          "level": "Beginner",
+          "theory": "January, March, May, July, August, October and December have 31 days. April, June, September and November have 30. February has 28 in a common year and 29 in a leap year.",
+          "formulas": [
+            "31-day months: Jan, Mar, May, Jul, Aug, Oct, Dec",
+            "30-day months: Apr, Jun, Sep, Nov",
+            "Feb: 28/29"
+          ],
+          "shortcuts": [
+            "Use the knuckle method or the mnemonic: Thirty days hath September, April, June and November."
+          ],
+          "examples": [
+            {
+              "question": "Days in September?",
+              "solution": "30.",
+              "answer": "30"
+            }
+          ],
+          "commonMistakes": [
+            "Treating July and August as having different lengths."
+          ],
+          "examTips": [
+            "In date differences, write a month table if needed."
+          ]
+        },
+        {
+          "id": "cal_weekday",
+          "category": "Calendar",
+          "topic": "Day of Week",
+          "title": "Finding a Weekday",
+          "level": "Intermediate",
+          "theory": "To find a weekday, choose a known reference date or use an odd-days method. Compute the number of elapsed days, divide by 7, and shift the reference weekday by the remainder. Gregorian rules must be applied when the range crosses leap years or centuries.",
+          "formulas": [
+            "New weekday = reference weekday + (elapsed days mod 7)",
+            "Use modulo 7"
+          ],
+          "shortcuts": [
+            "Only the remainder modulo 7 affects the weekday."
+          ],
+          "examples": [
+            {
+              "question": "If Monday is today, what day is it after 100 days?",
+              "solution": "100 mod 7=2; Monday +2 = Wednesday.",
+              "answer": "Wednesday"
+            }
+          ],
+          "commonMistakes": [
+            "Using the quotient instead of the remainder."
+          ],
+          "examTips": [
+            "Keep weekday indexing consistent."
+          ]
+        },
+        {
+          "id": "cal_offsets",
+          "category": "Calendar",
+          "topic": "Day-Date Relationships",
+          "title": "Before and After N Days",
+          "level": "Intermediate",
+          "theory": "A shift of N days changes the weekday by N mod 7. For an actual date, add or subtract a timedelta-style number of calendar days, allowing month lengths and leap days to change the date.",
+          "formulas": [
+            "N mod 7 determines weekday shift",
+            "After N days: date + N",
+            "Before N days: date − N"
+          ],
+          "shortcuts": [
+            "Reduce large N modulo 7 for weekday-only questions."
+          ],
+          "examples": [
+            {
+              "question": "Sunday minus 75 days?",
+              "solution": "75 mod 7=5; Sunday−5 = Tuesday.",
+              "answer": "Tuesday"
+            }
+          ],
+          "commonMistakes": [
+            "Reversing before and after."
+          ],
+          "examTips": [
+            "Draw a seven-day cycle for negative shifts."
+          ]
+        },
+        {
+          "id": "cal_difference",
+          "category": "Calendar",
+          "topic": "Date Difference",
+          "title": "Counting Days Between Dates",
+          "level": "Intermediate",
+          "theory": "Date-difference questions require careful counting across month and year boundaries. For elapsed days, subtract the earlier date from the later date; the starting date is not counted as a completed day. Leap days must be included when they occur within the interval.",
+          "formulas": [
+            "Elapsed days = later date − earlier date",
+            "Inclusive count = elapsed days + 1 when both endpoints are counted"
+          ],
+          "shortcuts": [
+            "For 1 January to 1 January, the difference is the number of days in the intervening years."
+          ],
+          "examples": [
+            {
+              "question": "1 Jan 2020 to 1 Jan 2025?",
+              "solution": "2020→2021 = 366 days; 2021→2022 = 365; 2022→2023 = 365; 2023→2024 = 365; 2024→2025 = 366. Total = 366+365+365+365+366 = 1827 days.",
+              "answer": "1827 days"
+            }
+          ],
+          "commonMistakes": [
+            "Confusing elapsed and inclusive counting."
+          ],
+          "examTips": [
+            "Read whether the question says 'between', 'from...to', or 'including both dates'."
+          ]
+        },
+        {
+          "id": "cal_century",
+          "category": "Calendar",
+          "topic": "Century Questions",
+          "title": "100, 200, 300 and 400 Year Cycles",
+          "level": "Advanced",
+          "theory": "Century calculations depend on which century is being used because century years can be non-leap. In the Gregorian calendar, every 400-year block contains 97 leap years and 303 common years, totaling 146097 days, exactly divisible by 7.",
+          "formulas": [
+            "400 years = 146097 days",
+            "146097 mod 7 = 0",
+            "97 leap years in 400 years"
+          ],
+          "shortcuts": [
+            "Group large ranges into complete 400-year blocks."
+          ],
+          "examples": [
+            {
+              "question": "Odd days in 400 years?",
+              "solution": "146097 is divisible by 7.",
+              "answer": "0"
+            }
+          ],
+          "commonMistakes": [
+            "Assuming every century contains 25 leap years."
+          ],
+          "examTips": [
+            "Check century years individually unless you can group a complete 400-year cycle."
+          ]
+        },
+        {
+          "id": "cal_same",
+          "category": "Calendar",
+          "topic": "Same Calendar",
+          "title": "Finding a Repeating Calendar",
+          "level": "Advanced",
+          "theory": "Two years have the same calendar when they have the same weekday for 1 January and the same leap/common status, so every month aligns. The accumulated weekday shift from intervening years determines the candidate; then verify the year types.",
+          "formulas": [
+            "Same calendar requires same 1 January weekday + same leap/common status"
+          ],
+          "shortcuts": [
+            "Do not stop after matching 1 January; check leap status."
+          ],
+          "examples": [
+            {
+              "question": "Next same calendar after 2025?",
+              "solution": "2031 has the same 1 January weekday and is also a common year.",
+              "answer": "2031"
+            }
+          ],
+          "commonMistakes": [
+            "Matching only January 1."
+          ],
+          "examTips": [
+            "Always perform the two-condition check."
+          ]
+        },
+        {
+          "id": "cal_repeating",
+          "category": "Calendar",
+          "topic": "Repeating Calendar",
+          "title": "Calendar Cycles",
+          "level": "Advanced",
+          "theory": "A common-year weekday pattern shifts by one day in the next year; a leap-year pattern shifts by two. The familiar 28-year cycle is a useful shortcut in many ranges, but century exceptions interrupt simple 28-year repetition. The exact Gregorian cycle is 400 years.",
+          "formulas": [
+            "Common year shift = 1 day",
+            "Leap year shift = 2 days",
+            "Gregorian cycle = 400 years"
+          ],
+          "shortcuts": [
+            "Use 28-year patterns only when no century exception breaks the sequence."
+          ],
+          "examples": [
+            {
+              "question": "Why does a 400-year cycle repeat?",
+              "solution": "It contains 146097 days, divisible by 7.",
+              "answer": "It contributes 0 odd days"
+            }
+          ],
+          "commonMistakes": [
+            "Using a 28-year repeat blindly across 2100, 2200 or 2300."
+          ],
+          "examTips": [
+            "Use the 400-year rule for long Gregorian ranges."
+          ]
+        },
+        {
+          "id": "cal_birthday",
+          "category": "Calendar",
+          "topic": "Birthday and Age",
+          "title": "Birthday Weekday Problems",
+          "level": "Advanced",
+          "theory": "Birthday questions combine date intervals with weekday shifts. For an ordinary birthday, count the intervening days and include leap days when they occur before the birthday in the relevant year. Leap-day birthdays require an explicit convention if the question asks about non-leap years.",
+          "formulas": [
+            "Weekday shift = elapsed days mod 7",
+            "Leap day contributes one additional shift when crossed"
+          ],
+          "shortcuts": [
+            "Compare the same month/day first; then count year shifts."
+          ],
+          "examples": [
+            {
+              "question": "If 1 January 2024 is Monday, what day is 1 January 2025?",
+              "solution": "2024 is leap, so shift by 2 days: Monday→Wednesday.",
+              "answer": "Wednesday"
+            }
+          ],
+          "commonMistakes": [
+            "Treating every year as a 1-day shift."
+          ],
+          "examTips": [
+            "Identify leap years between the two birthdays."
+          ]
+        },
+        {
+          "id": "cal_advanced",
+          "category": "Calendar",
+          "topic": "Advanced Calendar Problems",
+          "title": "Mixed Calendar Reasoning",
+          "level": "Expert",
+          "theory": "Expert problems may combine large date ranges, century rules, same-calendar conditions, date differences and modular arithmetic. Solve them by splitting the interval into manageable year blocks, applying the exact leap-year rule, and reducing the final total modulo 7.",
+          "formulas": [
+            "Total shift = total days mod 7",
+            "400-year blocks contribute 0 odd days"
+          ],
+          "shortcuts": [
+            "Peel off complete 400-year cycles first.",
+            "Use exact date arithmetic near February and century boundaries."
+          ],
+          "examples": [
+            {
+              "question": "How many days from 1 January 2000 to 1 January 2400?",
+              "solution": "Exactly one Gregorian 400-year cycle = 146097 days.",
+              "answer": "146097"
+            }
+          ],
+          "commonMistakes": [
+            "Ignoring the endpoint convention or century exception."
+          ],
+          "examTips": [
+            "Write the interval endpoints explicitly before counting."
+          ]
+        }
+      ],
+      "formulas": [
+        "Normal year = 365 days = 52 weeks + 1 day",
+        "Leap year = 366 days = 52 weeks + 2 days",
+        "Odd days = total days mod 7",
+        "Leap year: divisible by 4, except century years unless divisible by 400",
+        "400 Gregorian years = 146097 days = 0 odd days",
+        "Weekday shift = elapsed days mod 7",
+        "Elapsed date difference = later date − earlier date",
+        "Same calendar requires same 1 January weekday and same leap/common status"
+      ],
+      "shortcuts": [
+        "N mod 7 for weekday shifts",
+        "Normal year contributes 1 odd day",
+        "Leap year contributes 2 odd days",
+        "Check century years with divisibility by 400",
+        "Group complete 400-year cycles",
+        "Use month-length table",
+        "Do not confuse elapsed with inclusive date counts",
+        "Verify same-calendar candidates using both conditions"
+      ],
+      "solvedExamples": [
+        {
+          "question": "Find the weekday of 01 January 2025.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Wednesday.",
+          "answer": "Wednesday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        },
+        {
+          "question": "Find the weekday of 29 February 2024.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Thursday.",
+          "answer": "Thursday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        },
+        {
+          "question": "Find the weekday of 15 August 1947.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Friday.",
+          "answer": "Friday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        },
+        {
+          "question": "Find the weekday of 26 January 1950.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Thursday.",
+          "answer": "Thursday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        },
+        {
+          "question": "Find the weekday of 15 August 2030.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Thursday.",
+          "answer": "Thursday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        },
+        {
+          "question": "Find the weekday of 01 January 2000.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Saturday.",
+          "answer": "Saturday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        },
+        {
+          "question": "Find the weekday of 01 January 1900.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Monday.",
+          "answer": "Monday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        },
+        {
+          "question": "Find the weekday of 01 February 2028.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Tuesday.",
+          "answer": "Tuesday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        },
+        {
+          "question": "Find the weekday of 15 July 2023.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Saturday.",
+          "answer": "Saturday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        },
+        {
+          "question": "Find the weekday of 05 September 2026.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Saturday.",
+          "answer": "Saturday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        },
+        {
+          "question": "Find the weekday of 01 January 2025.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Wednesday.",
+          "answer": "Wednesday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        },
+        {
+          "question": "Find the weekday of 29 February 2024.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Thursday.",
+          "answer": "Thursday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        },
+        {
+          "question": "Find the weekday of 15 August 1947.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Friday.",
+          "answer": "Friday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        },
+        {
+          "question": "Find the weekday of 26 January 1950.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Thursday.",
+          "answer": "Thursday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        },
+        {
+          "question": "Find the weekday of 15 August 2030.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Thursday.",
+          "answer": "Thursday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        },
+        {
+          "question": "Find the weekday of 01 January 2000.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Saturday.",
+          "answer": "Saturday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        },
+        {
+          "question": "Find the weekday of 01 January 1900.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Monday.",
+          "answer": "Monday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        },
+        {
+          "question": "Find the weekday of 01 February 2028.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Tuesday.",
+          "answer": "Tuesday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        },
+        {
+          "question": "Find the weekday of 15 July 2023.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Saturday.",
+          "answer": "Saturday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        },
+        {
+          "question": "Find the weekday of 05 September 2026.",
+          "concept": "Day of Week",
+          "formula": "Gregorian weekday calculation / modulo 7",
+          "step1": "Identify the reference or use exact Gregorian date arithmetic.",
+          "step2": "Account for leap years and reduce the total day shift modulo 7.",
+          "step3": "The resulting weekday is Saturday.",
+          "answer": "Saturday",
+          "examTip": "For historical dates, use the Gregorian calendar unless the problem explicitly specifies another calendar."
+        }
+      ],
+      "questionGeneration": {
+        "mode": "runtime",
+        "source": "modules/dynamic_questions.py",
+        "description": "Questions are generated procedurally at runtime; no fixed MCQ list is used for practice."
+      }
+    }
+  }
+}
